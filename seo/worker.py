@@ -7,10 +7,13 @@ from config.logger import logger
 class Worker:
 
     def __init__(self):
+        data_manager = DataManager().get_instance()
+        self.service_file_path = data_manager.service_file_path
         logger.info("Starting Worker")
-        super().__init__()
-        self.settings = SettingsLoader()
-        self.settings_list = self.settings().to_dict('records')
+
+    def load_settings(self):
+        settings = SettingsLoader()
+        self.settings_list = settings().to_dict('records')
 
     def __call__(self, api):
         self.session = Bitrix()

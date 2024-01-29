@@ -19,6 +19,12 @@ class Project:
     api: str
     catalog_id: str
 
+
+@dataclass
+class GoogleSheet:
+    filepath: str
+    spread_sheet_id: str
+
 @dataclass
 class ProjectData:
     catalog_id: str

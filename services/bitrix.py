@@ -13,7 +13,6 @@ class Bitrix:
         self.__get_user_data()
         self.database = Postgres()
         self.database()
-
         self.options = Options()
         self.options.add_argument(
             "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
@@ -24,10 +23,6 @@ class Bitrix:
         self.driver.set_window_size(1920, 1080)
         self.driver.implicitly_wait(10)
         self.__load_project_enter_url(project)
-        self.properties_db = self.database.load_table_from_db_as_dict(f"properties_{project}")
-        self.sections = self.database.load_table_from_db_as_dict(
-            f"Sections_iPort"
-        )
         self.__enter_bitrix()
 
     def __get_user_data(self):
@@ -50,7 +45,6 @@ class Bitrix:
         self.driver.find_element(By.NAME, "apply").click()
         time.sleep(2)
 
-    @log_func_calls
     def save_changes(self):
         self.driver.find_element(By.NAME, "save").click()
         time.sleep(2)

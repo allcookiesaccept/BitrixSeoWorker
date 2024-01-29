@@ -1,8 +1,3 @@
-
-
-
-
-
 class SettingsCounter:
     def __init__(self):
         self.updated_pages = 0

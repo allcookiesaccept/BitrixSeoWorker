@@ -1,17 +1,12 @@
 import pygsheets
 from pathlib import Path
 from config.logger import logger
-
-# current_path = Path(__file__).resolve()
-# grandparent_path = current_path.parent.parent.parent
-#
-# service_file_path = grandparent_path / service_file_name
-#
+from config.config import DataManager
 
 class GoogleSheet:
-    def __init__(self, service_file_path: str = service_file_path):
-        logger.info("Starting GoogleSheet")
+    def __init__(self, service_file_path: str):
         self.service_file_path = service_file_path
+        logger.info("Starting GoogleSheet")
 
     def __call__(self, spreadsheet_id: str):
         self.__oauth()
@@ -34,11 +29,3 @@ class GoogleSheet:
         self.__spreadsheet_connection_check()
         sheet = self.sheet.sheet1
         self.sheet_data = sheet.get_as_df()
-        # self.all_values = sheet.get_all_values()
-        # self.values = sheet.get_values()
-
-    # def get_pandas_df_from_spreadsheet(self) -> pandas.DataFrame:
-    #     headers = self.sheet_data.pop(0)
-    #     df = pd.DataFrame(self.sheet_data, columns=headers)
-    #     df.dropna()
-    #     return df
