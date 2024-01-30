@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from config.logger import logger, log_func_calls
 
+
 class TagPageEditorMethods:
     def __init__(self, session):
         logger.info("Starting TagPageEditorMethods")
@@ -89,7 +90,9 @@ class TagPageEditorMethods:
         search_string = None
         match property_type:
             case "checkbox":
-                search_string = f'label.adm-designed-checkbox-label[for="{property_key}"]'
+                search_string = (
+                    f'label.adm-designed-checkbox-label[for="{property_key}"]'
+                )
                 # TODO fix radio button selector
             case "radio":
                 search_string = f'//div[@class="radio"]//label[@for="{property_key}"]//span//input[@id="{property_key}"]'
@@ -103,14 +106,11 @@ class TagPageEditorMethods:
 
     @log_func_calls
     def _click_on_activity_checkbox(self):
-
         search_string = f'label.adm-designed-checkbox-label[for="ACTIVE"]'
         activity_checkbox = self.session.driver.find_element(
             By.CSS_SELECTOR, search_string
         )
-        self.session.driver.execute_script(
-            "arguments[0].click();", activity_checkbox
-        )
+        self.session.driver.execute_script("arguments[0].click();", activity_checkbox)
 
     def __process_properties(self, input_value: str) -> None:
         properties = input_value.split("|")
@@ -126,7 +126,7 @@ class TagPageEditorMethods:
                 ):
                     property_type = property_row["PropertyType"]
                     property_key_value_id = property_row["KeyValueID"]
-                    property_key_value_id = property_key_value_id.split('count_')[1]
+                    property_key_value_id = property_key_value_id.split("count_")[1]
                     property_name = property_row["PropertyName"]
                     self.__scroll_to_property_block(property_name)
                     element_xpath_string = (

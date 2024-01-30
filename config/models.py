@@ -5,13 +5,14 @@ from dataclasses import dataclass
 class User:
     login: str
     password: str
-    api: str
+    api_urls: {dict}
 
 
 @dataclass
 class Api:
     name: str
     url: str
+
 
 @dataclass
 class Project:
@@ -24,6 +25,7 @@ class Project:
 class GoogleSheet:
     filepath: str
     spread_sheet_id: str
+
 
 @dataclass
 class ProjectData:
@@ -43,4 +45,3 @@ class Postgres:
 @dataclass
 class SeoTagPageColumns:
     setting_id: str | None = None
-

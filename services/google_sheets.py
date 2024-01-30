@@ -4,13 +4,14 @@ from config.logger import logger
 from config.config import DataManager
 
 class GoogleSheet:
-    def __init__(self, service_file_path: str):
+    def __init__(self, service_file_path: str, spreadsheet_id: str):
         self.service_file_path = service_file_path
+        self.spreadsheet_id = spreadsheet_id
         logger.info("Starting GoogleSheet")
 
-    def __call__(self, spreadsheet_id: str):
+    def __call__(self):
         self.__oauth()
-        self.open_spreadsheet(spreadsheet_id)
+        self.open_spreadsheet(self.spreadsheet_id)
         self.get_spreadsheet()
 
     def __spreadsheet_connection_check(self):

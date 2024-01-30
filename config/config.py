@@ -26,22 +26,18 @@ class DataManager:
             self.google_sheets = self.get_google_oauth_data()
             DataManager.__instance = self
 
-    def load_bitrix_user(self, site: str = "site_1") -> User:
+    def load_bitrix_user(self) -> User:
 
         login = os.getenv("LOGIN")
         password = os.getenv("PASSWORD")
-        api = None
-        match site:
-            case "site_1":
-                api = os.getenv("SITE_1_API")
-            case "site_2":
-                api = os.getenv("SITE_2_API")
-            case "site_3":
-                api = os.getenv("SITE_3_API")
-            case "site_4":
-                api = os.getenv("SITE_4_API")
+        api_urls = {
+            "site_1": os.getenv("SITE_1_API"),
+            "site_2": os.getenv("SITE_2_API"),
+            "site_3": os.getenv("SITE_3_API"),
+            "site_4": os.getenv("SITE_4_API"),
+        }
 
-        return User(login=login, password=password, api=api)
+        return User(login=login, password=password, api_urls=api_urls)
 
 
     def get_google_oauth_data(self):
