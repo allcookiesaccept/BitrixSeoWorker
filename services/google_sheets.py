@@ -1,7 +1,5 @@
 import pygsheets
-from pathlib import Path
 from config.logger import logger
-from config.config import DataManager
 
 class GoogleSheet:
     def __init__(self, service_file_path: str, spreadsheet_id: str):
