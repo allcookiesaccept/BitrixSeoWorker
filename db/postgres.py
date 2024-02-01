@@ -1,6 +1,6 @@
 import psycopg2
 from config.config import DataManager
-
+# update
 
 class Postgres:
     def __init__(self):

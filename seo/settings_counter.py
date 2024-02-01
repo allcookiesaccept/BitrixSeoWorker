@@ -23,3 +23,4 @@ class SettingsCounter:
     def __added_settings_counter(self):
         self.added_settings += 1
         print(f"Finished {self.added_settings} pages")
+# update

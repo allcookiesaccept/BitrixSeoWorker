@@ -2,7 +2,7 @@ from services.bitrix import Bitrix
 from seo.module.tag_page_editor_methods import TagPageEditorMethods
 from config.logger import logger, log_func_calls
 import time
-
+# update
 
 class TagPageEditor(TagPageEditorMethods):
     @log_func_calls

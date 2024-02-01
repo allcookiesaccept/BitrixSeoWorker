@@ -1,7 +1,7 @@
 from db.postgres import Postgres
 import pandas as pd
 
-
+# update
 class SeoModuleDBCreator:
 
     def __init__(self):

@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from config.logger import logger
 
-
+# update
 class CatalogEditorMethods:
     def __init__(self, session):
         logger.info("Starting TagPageEditorMethods")

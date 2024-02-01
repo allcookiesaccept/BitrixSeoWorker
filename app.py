@@ -3,7 +3,7 @@ from services.bitrix import Bitrix
 from config.logger import logger
 from config.config import DataManager
 from services.google_sheets import GoogleSheet
-
+# update
 
 class Worker:
     def __init__(self):

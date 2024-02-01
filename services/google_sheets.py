@@ -1,6 +1,6 @@
 import pygsheets
 from config.logger import logger
-
+# update
 class GoogleSheet:
     def __init__(self, service_file_path: str, spreadsheet_id: str):
         self.service_file_path = service_file_path

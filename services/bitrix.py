@@ -14,6 +14,7 @@ class Bitrix:
         "site_4": {"catalog_id": "62", "checkbox": "SITE_ID_s6"},
     }
 
+    # update
     def __init__(self, bitrix_user: User):
         logger.info("Starting Bitrix")
         self.options = Options()

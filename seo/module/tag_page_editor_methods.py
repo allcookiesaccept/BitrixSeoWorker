@@ -22,6 +22,7 @@ class TagPageEditorMethods:
             "properties": self.__process_properties,
         }
 
+    # update
     def __add_product_tag_name(self, input_value: str) -> None:
         tag_input = self.session.driver.find_element(By.NAME, "TAG_NAME")
         tag_input.clear()
