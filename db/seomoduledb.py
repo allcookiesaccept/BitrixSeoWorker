@@ -19,8 +19,6 @@ class SeoModuleDBCreator:
 
     def __call__(self, project: str = 'iport'):
         self.project = project
-
-
         self.postgres.create_table('sites', self.tableSites)
         self.postgres.create_table(f'{project}_sections', self.tableSections)
         self.postgres.create_table(f'{project}_properties', )

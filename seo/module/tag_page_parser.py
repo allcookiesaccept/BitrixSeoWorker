@@ -14,7 +14,6 @@ class TagPageParser:
 
     def __call__(self):
 
-        # open pages - total or segmented
         self.session.driver.get(f'{self.session.api_url}{TagPageParser.TOTAL_PAGES_LIST}{self.session.checkbox_id.split("_")[-1]}')
 
         page_source = self.session.driver.page_source
@@ -31,11 +30,3 @@ class TagPageParser:
             link = f"{self.session.api_url}{path}"
             links.append(link)
 
-
-    def __parse_page(self):
-        page_source = self.session.driver.page_source
-        soup = BeautifulSoup(page_source, 'html.parser')
-        section_selector = soup.find('select', attrs={'name': 'SECTION_ID'})
-        selected_option = section_selector.select_one('option[selected]')
-        section_id = selected_option.get('value')
-        zver_block = soup.find('div', class_='zver-filter')
